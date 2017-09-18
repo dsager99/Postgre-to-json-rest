@@ -1,0 +1,75 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.nic.eprocurement.rest</groupId>
+    <artifactId>postgretojsonrest4</artifactId>
+    <packaging>war</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>postgretojsonrest4</name>
+
+    <build>
+        <finalName>postgretojsonrest4</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.0</version>
+                <inherited>true</inherited>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.glassfish.jersey</groupId>
+                <artifactId>jersey-bom</artifactId>
+                <version>${jersey.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+	    <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+		<dependency>
+		    <groupId>org.postgresql</groupId>
+		    <artifactId>postgresql</artifactId>
+		    <version>9.4.1212</version>
+		</dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <!--  use the following artifactId if you need servlet 2.x compatibility and comment below artifactId -->
+            <!-- artifactId>jersey-container-servlet-core</artifactId -->
+            
+            <!--  use the following artifactId if you don't need servlet 2.x compatibility and comment above artifactId -->
+            <artifactId>jersey-container-servlet</artifactId>
+        </dependency>
+        <!-- uncomment this to get JSON support (OR) comment this to remove JSON support -->
+        <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-moxy</artifactId>
+        </dependency>
+		<dependency>
+		   	<groupId>org.elasticsearch</groupId>
+		   	<artifactId>elasticsearch</artifactId>
+		   	<version>5.0.0</version>
+	    </dependency>
+	    <dependency>
+	    	<groupId>org.elasticsearch.client</groupId>
+	    	<artifactId>transport</artifactId>
+	    	<version>5.0.0</version>
+	    </dependency>
+    </dependencies>
+    <properties>
+        <jersey.version>2.25</jersey.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+</project>
